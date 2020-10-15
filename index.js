@@ -22,12 +22,15 @@ mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true });
 const db = mongoose.connection;
 
 if (!db) {
-  console.log('no db connected');
+  console.log('No database connected');
 } else {
-  console.log('Db connected');
+  console.log('Database connected');
 }
 
-// app.get('/', (req, res) => res.send('Hello there!'));
+app.get('/', (req, res) => res.send('Hello there!'));
+// app.get('/home', (req, res) => {
+//   res.sendFile('pages/home.html')
+// })
 
 app.use('/api', apiRoutes);
 
