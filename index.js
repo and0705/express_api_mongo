@@ -28,9 +28,9 @@ if (!db) {
 }
 
 app.get('/', (req, res) => res.send('Hello there!'));
-// app.get('/home', (req, res) => {
-//   res.sendFile('pages/home.html')
-// })
+app.get('/home', (req, res) => {
+  res.sendFile(__dirname + '/pages/home.html')
+})
 
 app.use('/api', apiRoutes);
 
