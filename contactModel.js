@@ -9,6 +9,8 @@ const contactSchema = mongoose.Schema({
   email: {
     type: String,
     required: true,
+    lowercase: true,
+    unique: true,
   },
   gender: String,
   phone: String,
@@ -16,6 +18,7 @@ const contactSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  // need optional fields: description, hobby, ...
 });
 
 // export Contact model

@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 8080;
+const DB_NAME = process.env.DB_NAME || 'temp_database';
 
 const app = express();
 
@@ -17,7 +18,10 @@ app.use(
 app.use(bodyParser.json());
 
 // mongodb
-mongoose.connect('mongodb://localhost/resthub', { useNewUrlParser: true });
+mongoose.connect(`mongodb://localhost/${DB_NAME}`, { 
+  useCreateIndex: true,  
+  useNewUrlParser: true 
+});
 
 const db = mongoose.connection;
 

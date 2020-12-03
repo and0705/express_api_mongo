@@ -2,7 +2,7 @@ const Contact = require('./contactModel');
 
 // handle index actions
 exports.index = (req, res) => {
-  Contact.get(function (err, contacts) {
+  Contact.get((err, contacts) => {
     if (err) {
       res.json({
         status: 'error',
